@@ -60,15 +60,6 @@ check_response = function(data, next) {
 
         // wenn richtig kategorisiert: färbe knopf gelb
         // wenn falsch: färbe blau und anderen knopf gelb
-        // 20.08.: kinda broken rn
-        /* if (o1c.value === data.correct) {
-            btn1.style.backgroundColor = "#ffd633"; // gelb 
-            // btn2.style.backgroundColor = "#3333ff"; // blau
-        } else {
-            btn1.style.backgroundColor = "#3333ff";
-            btn2.style.backgroundColor = "#ffd633";
-        } */
-
         if (e.target.value === data.correct && e.target.id === "o1") {
             btn1.style.backgroundColor = "#ffd633"; // gelb 
         } else if (e.target.value === data.correct && e.target.id === "o2") {
@@ -81,9 +72,7 @@ check_response = function(data, next) {
             btn1.style.backgroundColor = "#ffd633";
         }
 
-        console.log(e.target.value);
-        console.log(e.target);
-        console.log(e.target.value === data.correct && e.target.id === "o1")
+        // console.log(e.target.value === data.correct && e.target.id === "o1")
 
         if (e.target.value === data.correct) {
             $(".magpie-view-answer-container").append(`<b style="font-size:x-large;">Korrekt!</b>`);
@@ -91,7 +80,6 @@ check_response = function(data, next) {
             $(".magpie-view-answer-container").append(`<b style="font-size:x-large;">Falsch!</b>`);
         };  
 
-        // $('input[name=answer]').attr('click', 'disabled');
         btn1.style.pointerEvents = "none";
         btn2.style.pointerEvents = "none";
     })
