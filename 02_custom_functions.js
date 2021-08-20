@@ -52,18 +52,40 @@ const time_limit = function(data, next) {
 // compares the chosen answer to the value of `option1`
 check_response = function(data, next) {
     $('input[name=answer]').one('change', function(e) {
-        $('input').attr('disabled','disabled');
-        if (e.target.value === data.correct) {
-            // return `<div class='magpie-view-question'>Korrekt!</div>`;
-            $(".magpie-view-answer-container").append(`<b style="font-size:x-large;">Korrekt!</b>`);
-            $('input[name=answer]')
-            $('input[name!=answer]')
+
+        // console.log($('input[name=answer]'));
+        // console.log(data.correct, e.target.value);
+        // console.log($('#o1')[0].attributes[3].value);
+        // console.log($('#o1')[0].attributes[3].value === data.correct);
+        // console.log($('#o2')[0].attributes[3].value === data.correct);
+
+        const btn1 = document.querySelector('label[for="o1"]');
+        const btn2 = document.querySelector('label[for="o2"]');
+        const o1c = document.querySelector("#o1");
+        const o2c = document.querySelector("#o2");
+
+        console.log("btn1:", btn1)
+        console.log("btn2:", btn2)
+        console.log("o1c:", o1c)
+        console.log("o2c:", o2c)
+        console.log("o1c.value === data.correct?", o1c.value === data.correct)
+        console.log("o2c.value === data.correct?", o2c.value === data.correct)
+
+        if (o1c.value === data.correct) {
+            btn1.style.backgroundColor = "#ffd633"; // gelb
+            // btn2.style.backgroundColor = "#3333ff"; // blau
         } else {
-            // return `<div class='magpie-view-question'>Falsch!</div>`;
-            $(".magpie-view-answer-container").append(`<b style="font-size:x-large;">Falsch!</b>`);
-            $('input[name=answer]')
-            $('input[name!=answer]')
+            btn1.style.backgroundColor = "#3333ff";
+            btn2.style.backgroundColor = "#ffd633";
         }
+
+        if (e.target.value === data.correct) {
+            $(".magpie-view-answer-container").append(`<b style="font-size:x-large;">Korrekt!</b>`);
+            // $('input[name=answer]').style.backgroundColor = '#888';
+        } else {
+            $(".magpie-view-answer-container").append(`<b style="font-size:x-large;">Falsch!</b>`);
+        };  
+        // $('input').attr('disabled','disabled');
         // next();
     })
 }
