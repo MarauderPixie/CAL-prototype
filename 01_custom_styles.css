@@ -28,11 +28,14 @@
 }
 
 
-.magpie-response-buttons:hover {
+/* .magpie-response-buttons:hover {
     background-color: #1e1e1e10; 
     border-style: dashed;
     border-color: black;
     border-width: 2px;
+} */
+.magpie-response-buttons:hover {
+    background-color: #1e1e1e20;
 }
 
 .magpie-view-stimulus-container {
