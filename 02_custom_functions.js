@@ -58,23 +58,32 @@ check_response = function(data, next) {
         const o1c = document.querySelector("#o1");
         const o2c = document.querySelector("#o2");
 
-        console.log("btn1:", btn1)
-        console.log("btn2:", btn2)
-        console.log("o1c:", o1c)
-        console.log("o2c:", o2c)
-        console.log("o1c.value === data.correct?", o1c.value === data.correct)
-        console.log("o2c.value === data.correct?", o2c.value === data.correct)
-
         // wenn richtig kategorisiert: färbe knopf gelb
         // wenn falsch: färbe blau und anderen knopf gelb
         // 20.08.: kinda broken rn
-        if (o1c.value === data.correct) {
+        /* if (o1c.value === data.correct) {
             btn1.style.backgroundColor = "#ffd633"; // gelb 
             // btn2.style.backgroundColor = "#3333ff"; // blau
         } else {
             btn1.style.backgroundColor = "#3333ff";
             btn2.style.backgroundColor = "#ffd633";
+        } */
+
+        if (e.target.value === data.correct && e.target.id === "o1") {
+            btn1.style.backgroundColor = "#ffd633"; // gelb 
+        } else if (e.target.value === data.correct && e.target.id === "o2") {
+            btn2.style.backgroundColor = "#ffd633";
+        } else if (e.target.value != data.correct && e.target.id === "o1") {
+            btn1.style.backgroundColor = "#3333ff"; 
+            btn2.style.backgroundColor = "#ffd633";
+        } else {
+            btn2.style.backgroundColor = "#3333ff"; // blau
+            btn1.style.backgroundColor = "#ffd633";
         }
+
+        console.log(e.target.value);
+        console.log(e.target);
+        console.log(e.target.value === data.correct && e.target.id === "o1")
 
         if (e.target.value === data.correct) {
             $(".magpie-view-answer-container").append(`<b style="font-size:x-large;">Korrekt!</b>`);
