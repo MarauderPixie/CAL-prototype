@@ -53,12 +53,6 @@ const time_limit = function(data, next) {
 check_response = function(data, next) {
     $('input[name=answer]').one('change', function(e) {
 
-        // console.log($('input[name=answer]'));
-        // console.log(data.correct, e.target.value);
-        // console.log($('#o1')[0].attributes[3].value);
-        // console.log($('#o1')[0].attributes[3].value === data.correct);
-        // console.log($('#o2')[0].attributes[3].value === data.correct);
-
         const btn1 = document.querySelector('label[for="o1"]');
         const btn2 = document.querySelector('label[for="o2"]');
         const o1c = document.querySelector("#o1");
@@ -71,8 +65,11 @@ check_response = function(data, next) {
         console.log("o1c.value === data.correct?", o1c.value === data.correct)
         console.log("o2c.value === data.correct?", o2c.value === data.correct)
 
+        // wenn richtig kategorisiert: färbe knopf gelb
+        // wenn falsch: färbe blau und anderen knopf gelb
+        // 20.08.: kinda broken rn
         if (o1c.value === data.correct) {
-            btn1.style.backgroundColor = "#ffd633"; // gelb
+            btn1.style.backgroundColor = "#ffd633"; // gelb 
             // btn2.style.backgroundColor = "#3333ff"; // blau
         } else {
             btn1.style.backgroundColor = "#3333ff";
@@ -81,12 +78,13 @@ check_response = function(data, next) {
 
         if (e.target.value === data.correct) {
             $(".magpie-view-answer-container").append(`<b style="font-size:x-large;">Korrekt!</b>`);
-            // $('input[name=answer]').style.backgroundColor = '#888';
         } else {
             $(".magpie-view-answer-container").append(`<b style="font-size:x-large;">Falsch!</b>`);
         };  
-        // $('input').attr('disabled','disabled');
-        // next();
+
+        // $('input[name=answer]').attr('click', 'disabled');
+        btn1.style.pointerEvents = "none";
+        btn2.style.pointerEvents = "none";
     })
 }
 
