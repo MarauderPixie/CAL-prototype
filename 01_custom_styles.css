@@ -17,6 +17,14 @@
    border: 1px solid powderblue;
 }
 
+.magpie-view {
+    max-width: 1200px;
+}
+
+.magpie-view-text {
+    max-width: 720px;
+}
+
 .magpie-response-buttons {
     background-color: #1e1e1e10;
     color: #1e1e1e;
