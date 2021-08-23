@@ -10,9 +10,9 @@ Basically, it's an adaptation of _magpie's default "2-alternatives forced-choice
 
 ## Try it yourself
 
-To run the experiment locally, follow these steps:
+You can either [follow this link](https://cal-catlearn-protoype.netlify.app/) to an online version of the experiment or, to run (and eventually customize) it locally, follow these steps - assuming you already have `npm` installed:
 
 1. clone the repo
 2. open a terminal in the folder you cloned it to
-3. run `npm install`
+3. run `npm install` 
 4. open `index.html` in your browser
