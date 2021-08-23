@@ -23,27 +23,33 @@ const intro = magpieViews.view_generator("intro", {
   trials: 1,
   name: 'intro',
   // If you use JavaScripts Template String `I am a Template String`, you can use HTML <></> and javascript ${} inside
-  text: `This is a sample introduction view.
-            <br />
-            <br />
-            The introduction view welcomes the participant and gives general information
-            about the experiment. You are in the <strong>${coin}</strong> group.
-            <br />
-            <br />
-            This is a minimal experiment with one forced choice view. It can serve as a starting point for programming your own experiment.`,
-  buttonText: 'begin the experiment'
+  title: 'Willkommen!',
+  text: `<b>Dies ist nur ein Prototyp!</b>
+  <br />
+  <br />
+  Auf der nächsten Seite folgen einige Instruktionen, danach folgen einiges Beispiel-Trials und am Ende wird Demographie abgefragt. 
+  <br />
+  <br />
+  Ein einsatzbereites Experiment würde zB eine Einwilligungserklärung enthalten und/oder eine Auswahlmöglichkeit für deutsche/englische Sprache und/oder ähnliche weitere Dinge.`,
+  buttonText: 'zu den Anweisungen'
 });
 
 // For most tasks, you need instructions views
 const instructions = magpieViews.view_generator("instructions", {
   trials: 1,
   name: 'instructions',
-  title: 'General Instructions',
-  text: `This is a sample instructions view.
-            <br />
-            <br />
-            Tell your participants what they are to do here.`,
-  buttonText: 'go to trials'
+  title: 'Einleitung',
+  text: `In dieser Studie werden Ihnen verschiedene Objekte präsentiert. Jedes Objekt gehört zu einer von zwei möglichen Kategorien, <b>A</b> oder <b>B</b>. Ihre Aufgabe in dieser Studie ist es, zu lernen, zu welcher Kategorie die Objekte gehören. Dies wird in mehreren Durchgängen passieren. In jedem Durchgang wird eines der Objekte angezeigt, und Sie wählen eine der zwei Kategorien, <b>A</b> oder <b>B</b>, durch einen Klick auf das entsprechende Antwortfeld. Nach jeder Antwort bekommen Sie eine Rückmeldung darüber, ob Ihre Wahl richtig oder falsch war. Am Anfang müssen Sie raten, letztendlich aber werden Sie lernen, wie man die Objekte richtig kategorisiert.
+  <br />
+  <br />
+  Es gibt insgesamt 8 Objekte, die jeweils drei Eigenschaften mit jeweils zwei Ausprägungen haben. Diese Eigenschaften sind:
+  <br />- <b>Form</b> (<i>Quadrat</i> oder <i>Kreis</i>)
+  <br />- <b>Farbe</b> (<i>weiß</i> oder <i>schwarz</i>) und
+  <br />- <b>Größe</b> (<i>groß</i> oder <i>klein</i>)
+  <br />  
+  <br />
+  In einem "fertigen" Experiment würde nun zunächst jedes Objekt einmal kurz angezeigt - in dieser Version fangen wir jedoch direkt mit der Kategorisierung an.`,
+  buttonText: 'mit dem Experiment beginnen'
 });
 
 
