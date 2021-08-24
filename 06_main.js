@@ -18,6 +18,7 @@ $("document").ready(function() {
             intro,
             instructions,
             forced_choice_2A,
+            slider_ratings,
             post_test,
             thanks,
         ],
