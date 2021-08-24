@@ -17,6 +17,17 @@
    border: 1px solid powderblue;
 }
 
+.column {
+    float: left;
+    /* width: 50%; */
+    padding: 10px;
+}
+
+/* .row {
+    margin: 0px;
+    height: 600px;
+} */
+
 .magpie-view {
     max-width: 1200px;
 }
@@ -51,4 +62,19 @@
     height: 300px;
     margin: 0 auto;
     width: 300px;
+}
+
+.magpie-response-slider-option:first-child {
+    text-align: right;
+    direction: ltr;
+}
+
+.magpie-response-slider-option {
+    text-align: left;
+    display: inline;
+}
+
+.magpie-view-answer-container {
+    display: table;
+    text-align: right;
 }
