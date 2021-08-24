@@ -14,3 +14,59 @@
 // 1. the choice needs to be "locked in" after it is made
 // 2. a correct/incorrect feedback and a 'next' button needs to be shown
 // 3. the view should not proceed when a choice was made, but when the 'next' button is clicked
+//
+// turns out: I don't quite need custom views for that, but or the slider ratings I just might
+
+const custom_generator = {
+    slider_rating: function(config, CT) {
+        const option1 = config.data[CT].optionLeft;
+        const option2 = config.data[CT].optionRight;
+
+        const option3 = config.data[CT].optionLeft;
+        const option4 = config.data[CT].optionRight;
+
+        const option5 = config.data[CT].optionLeft;
+        const option6 = config.data[CT].optionRight;
+
+        const prop1 = config.data[CT].prop1;
+        const prop2 = config.data[CT].prop2;
+        const prop3 = config.data[CT].prop3;
+
+        return `<p class='magpie-view-question'>${config.data[CT].question}</p>
+                <div class='magpie-view-answer-container'>
+                <div class="row">
+                    <div class="column">
+                        <span><b>${prop1}</b></span>
+                        <br />
+                        <br />
+
+                        <span><b>${prop2}</b></span>
+                        <br />
+                        <br />
+
+                        <span><b>${prop2}</b></span>
+                    </div>
+
+                    <div class="column">                    
+                        <span class='magpie-response-slider-option'>${option1}</span>
+                        <input type='range' id='response' class='magpie-response-slider' min='0' max='100' value='50'/>
+                        <span class='magpie-response-slider-option'>${option2}</span>
+                        <br />
+                        <br />
+
+                        <span class='magpie-response-slider-option'>${option3}</span>
+                        <input type='range' id='response' class='magpie-response-slider' min='0' max='100' value='50'/>
+                        <span class='magpie-response-slider-option'>${option4}</span>
+                        <br />
+                        <br />
+
+                        <span class='magpie-response-slider-option'>${option5}</span>
+                        <input type='range' id='response' class='magpie-response-slider' min='0' max='100' value='50'/>
+                        <span class='magpie-response-slider-option'>${option6}</span>
+                    </div>
+                </div>
+                </div>
+                <br />
+                <button id="next" class='magpie-view-button magpie-nodisplay'>Next</button>`;
+    }
+};
