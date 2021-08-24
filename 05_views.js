@@ -176,3 +176,18 @@ const forced_choice_2A = magpieViews.view_generator("forced_choice",
 // There are many more templates available:
 // forced_choice, slider_rating, dropdown_choice, testbox_input, rating_scale, image_selection, sentence_choice,
 // key_press, self_paced_reading and self_paced_reading_rating_scale
+
+const slider_ratings = magpieViews.view_generator("slider_rating",
+{
+  // This will use all trials specified in `data`, you can user a smaller value (for testing), but not a larger value
+  trials: trial_info.sliders.length,
+  // name should be identical to the variable name
+  name: 'slider_ratings',
+  data: trial_info.sliders
+  // you can add custom functions at different stages through a view's life cycle
+  // hook: {}
+},
+{
+  stimulus_container_generator: function(config, CT) {return `<div class='magpie-view'></div>`;},
+  answer_container_generator: custom_generator.slider_rating
+});
