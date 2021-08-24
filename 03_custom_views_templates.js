@@ -36,15 +36,15 @@ const custom_generator = {
                 <div class='magpie-view-answer-container'>
                 <div class="row">
                     <div class="column">
-                        <span><b>${prop1}</b></span>
+                        <span style="font-size:19px"><b>${prop1}</b></span>
                         <br />
                         <br />
 
-                        <span><b>${prop2}</b></span>
+                        <span style="font-size:19px"><b>${prop2}</b></span>
                         <br />
                         <br />
 
-                        <span><b>${prop2}</b></span>
+                        <span style="font-size:19px"><b>${prop2}</b></span>
                     </div>
 
                     <div class="column">                    
