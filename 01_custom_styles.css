@@ -24,8 +24,8 @@
 }
 
 /* .row {
-    margin: 0px;
-    height: 600px;
+    display: table;
+    text-align: right;
 } */
 
 .magpie-view {
@@ -75,15 +75,16 @@
     display: inline;
 }
 
-.magpie-view-answer-container {
+.magpie-view-slider-container {
     display: table;
     text-align: right;
+    margin: 45px auto;
 }
 
 
-/* #######################
-     response slider css
-   ####################### 
+/* #############################
+    default response slider css
+   ############################# 
 
 .magpie-response-slider {
     -webkit-appearance: none;
