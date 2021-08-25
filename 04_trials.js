@@ -64,8 +64,8 @@ const trial_info = {
             prop1: "Farbe (schwarz / weiß)",
             prop2: "Größe (groß / klein)",
             prop3: "Form (Quadrat / Kreis)",
-            optionLeft: "100-Slider",
-            optionRight: "Slider"
+            optionLeft: "unwichtig",
+            optionRight: "wichtig"
         }
     ]
 };

@@ -116,7 +116,7 @@ const forced_choice_2A = magpieViews.view_generator("forced_choice",
 // config info
 {
   // This will use all trials specified in `data`, you can user a smaller value (for testing), but not a larger value
-  trials: trial_info.forced_choice.length,
+  trials: 2, // trial_info.forced_choice.length,
   // name should be identical to the variable name
   name: 'forced_choice_2A',
   data: _.shuffle(trial_info.forced_choice),
@@ -130,16 +130,7 @@ const forced_choice_2A = magpieViews.view_generator("forced_choice",
 {
   // stimulus_container_generator: stimulus_container_generators.basic_stimulus,
   // answer_container_generator: answer_container_generators.button_choice,
-  answer_container_generator: function (config, CT) {
-    return `<div class='magpie-view-answer-container'>
-            <p class='magpie-view-question'>${config.data[CT].question}</p>
-            <label for='o1' class='magpie-response-buttons'>${config.data[CT].option1}</label>
-            <input type='radio' name='answer' id='o1' value=${config.data[CT].option1} />
-            <label for='o2' class='magpie-response-buttons'>${config.data[CT].option2}</label>
-            <input type='radio' name='answer' id='o2' value=${config.data[CT].option2} />
-            <button id='next' class='magpie-view-button magpie-nodisplay'>Next</button>
-            </div>`;
-  },
+  answer_container_generator: custom_answer_generator.categorisation,
 
   handle_response_function: function(config, CT, magpie, answer_container_generator, startingTime) {
 
@@ -189,5 +180,5 @@ const slider_ratings = magpieViews.view_generator("slider_rating",
 },
 {
   stimulus_container_generator: function(config, CT) {return `<div class='magpie-view'></div>`;},
-  answer_container_generator: custom_generator.slider_rating
+  answer_container_generator: custom_answer_generator.slider_ratings
 });
