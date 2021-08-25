@@ -50,7 +50,7 @@ const time_limit = function(data, next) {
 };
 
 // compares the chosen answer to the value of `option1`
-check_response = function(data, next) {
+check_category_response = function(data, next) {
     $('input[name=answer]').one('change', function(e) {
 
         const btn1 = document.querySelector('label[for="o1"]');

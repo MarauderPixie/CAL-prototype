@@ -120,13 +120,13 @@ const forced_choice_2A = magpieViews.view_generator("forced_choice", {
   data: _.shuffle(trial_info.forced_choice),
   // you can add custom functions at different stages through a view's life cycle
   hook: {
-    after_response_enabled: check_response
+    after_response_enabled: check_category_response
   }
 }, {
   // custom generator functions
   // stimulus_container_generator: stimulus_container_generators.basic_stimulus,
   answer_container_generator: custom_answer_generator.categorisation,
-  handle_response_function: custom_response_handlers.categorisation    
+  handle_response_function: custom_response_handlers.categorisation
 });
 
 const slider_ratings = magpieViews.view_generator("slider_rating", {
@@ -138,7 +138,8 @@ const slider_ratings = magpieViews.view_generator("slider_rating", {
   // hook: {}
 },{
   stimulus_container_generator: function(config, CT) {return `<div class='magpie-view'></div>`;},
-  answer_container_generator: custom_answer_generator.slider_ratings
+  answer_container_generator: custom_answer_generator.slider_ratings,
+  handle_response_function: custom_response_handlers.slider_ratings
 });
 
 

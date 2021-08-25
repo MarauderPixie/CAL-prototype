@@ -43,7 +43,10 @@ const custom_answer_generator = {
         const prop2 = config.data[CT].prop2;
         const prop3 = config.data[CT].prop3;
 
-        return `<p class='magpie-view-question'>${config.data[CT].question}</p>
+        return `<p class='magpie-view-question'>${config.data[CT].QUD}</p>
+
+                <hr>
+                <p class='magpie-view-question'>${config.data[CT].vorher}</p>
                 <div class='magpie-view-slider-container'>
                     <div class="row">
                         <div class="column">
@@ -60,23 +63,60 @@ const custom_answer_generator = {
 
                         <div class="column">                    
                             <span class='magpie-response-slider-option'>${option1}</span>
-                            <input type='range' id='response' class='magpie-response-slider' min='0' max='100' value='50'/>
+                            <input type='range' id='preprop1' class='magpie-response-slider' min='0' max='100' value='33'/>
                             <span class='magpie-response-slider-option'>${option2}</span>
                             <br />
                             <br />
 
                             <span class='magpie-response-slider-option'>${option1}</span>
-                            <input type='range' id='response' class='magpie-response-slider' min='0' max='100' value='50'/>
+                            <input type='range' id='preprop2' class='magpie-response-slider' min='0' max='100' value='33'/>
                             <span class='magpie-response-slider-option'>${option2}</span>
                             <br />
                             <br />
 
                             <span class='magpie-response-slider-option'>${option1}</span>
-                            <input type='range' id='response' class='magpie-response-slider' min='0' max='100' value='50'/>
+                            <input type='range' id='preprop3' class='magpie-response-slider' min='0' max='100' value='33'/>
                             <span class='magpie-response-slider-option'>${option2}</span>
                         </div>
                     </div>
                 </div>
+
+                <hr>
+                <p class='magpie-view-question'>${config.data[CT].nachher}</p>
+                <div class='magpie-view-slider-container'>
+                    <div class="row">
+                        <div class="column">
+                            <span style="font-size:19px"><b>${prop1}</b></span>
+                            <br />
+                            <br />
+
+                            <span style="font-size:19px"><b>${prop2}</b></span>
+                            <br />
+                            <br />
+
+                            <span style="font-size:19px"><b>${prop2}</b></span>
+                        </div>
+
+                        <div class="column">                    
+                            <span class='magpie-response-slider-option'>${option1}</span>
+                            <input type='range' id='postprop1' class='magpie-response-slider' min='0' max='100' value='33'/>
+                            <span class='magpie-response-slider-option'>${option2}</span>
+                            <br />
+                            <br />
+
+                            <span class='magpie-response-slider-option'>${option1}</span>
+                            <input type='range' id='postprop2' class='magpie-response-slider' min='0' max='100' value='33'/>
+                            <span class='magpie-response-slider-option'>${option2}</span>
+                            <br />
+                            <br />
+
+                            <span class='magpie-response-slider-option'>${option1}</span>
+                            <input type='range' id='postprop3' class='magpie-response-slider' min='0' max='100' value='33'/>
+                            <span class='magpie-response-slider-option'>${option2}</span>
+                        </div>
+                    </div>
+                </div>
+
                 <br />
                 <button id="next" class='magpie-view-button magpie-nodisplay'>Next</button>`;
     }
@@ -111,6 +151,61 @@ const custom_response_handlers = {
         $("#next").on("click", function() {
           magpie.findNextView();
         });
-    
-      }
+      },
+
+    slider_ratings: function(config, CT, magpie, answer_container_generator, startingTime){
+        let pre1;
+        let pre2;
+        let pre3;
+        let post1;
+        let post2;
+        let post3;
+
+        $(".magpie-view").append(answer_container_generator(config, CT));
+
+        pre1 = $("#preprop1");
+        pre2 = $("#preprop2");
+        pre3 = $("#preprop3");
+        post1 = $("#postprop1");
+        post2 = $("#postprop2");
+        post3 = $("#postprop3");
+
+        
+        const change_function = function() {
+            console.log("val1:", pre1.val(), "\n",
+                        "val2:", pre2.val(), "\n",
+                        "val3:", pre3.val(), "\n",
+                        "val4:", post1.val(), "\n",
+                        "val5:", post2.val(), "\n",
+                        "val6:", post3.val());
+            $("#next").removeClass("magpie-nodisplay");
+        };
+        // checks if the slider has been changed
+        pre1.on("change", change_function);
+        // pre1.on("click", change_function);
+        pre2.on("change", change_function);
+        // pre2.on("click", change_function);
+        pre3.on("change", change_function);
+        // pre3.on("click", change_function);
+
+        $("#next").on("click", function() {
+            const RT = Date.now() - startingTime; // measure RT before anything else
+            let trial_data = {
+                trial_name: config.name,
+                trial_number: CT + 1,
+                preprop1: pre1.val(),
+                preprop2: pre2.val(),
+                preprop3: pre3.val(),
+                postprop1: post1.val(),
+                postprop2: post2.val(),
+                postprop3: post3.val(),
+                RT: RT
+            };
+
+            trial_data = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data);
+
+            magpie.trial_data.push(trial_data);
+            magpie.findNextView();
+        });
+    }
 };
