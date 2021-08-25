@@ -81,3 +81,36 @@ const custom_answer_generator = {
                 <button id="next" class='magpie-view-button magpie-nodisplay'>Next</button>`;
     }
 };
+
+const custom_response_handlers = {
+    categorisation: function(config, CT, magpie, answer_container_generator, startingTime) {
+
+        // create the answer container
+        $(".magpie-view").append(answer_container_generator(config, CT));
+    
+        // attaches an event listener to the radio button input
+        // when an input is selected a response property with a value equal
+        // to the answer is added to the trial object
+        // as well as a readingTimes property with value
+        $("input[name=answer]").on("click", function() {
+          const RT = Date.now() - startingTime;
+          let trial_data = {
+              trial_name: config.name,
+              trial_number: CT + 1,
+              response: $("input[name=answer]:checked").val(),
+              RT: RT
+            };
+          trial_data = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data);
+          magpie.trial_data.push(trial_data);
+    
+          // $("magpie-response-buttons").find('input[type="click"]').attr('disabled','disabled');
+          // $("o1").find('input[type="click"]').attr('disabled','disabled');
+          $("#next").removeClass("magpie-nodisplay");
+        });
+        
+        $("#next").on("click", function() {
+          magpie.findNextView();
+        });
+    
+      }
+};

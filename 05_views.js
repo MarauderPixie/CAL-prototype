@@ -111,10 +111,8 @@ const thanks = magpieViews.view_generator("thanks", {
 
 
 // Here, we initialize a normal forced_choice view
-const forced_choice_2A = magpieViews.view_generator("forced_choice", 
-
-// config info
-{
+const forced_choice_2A = magpieViews.view_generator("forced_choice", {
+  // config info
   // This will use all trials specified in `data`, you can user a smaller value (for testing), but not a larger value
   trials: 2, // trial_info.forced_choice.length,
   // name should be identical to the variable name
@@ -124,61 +122,26 @@ const forced_choice_2A = magpieViews.view_generator("forced_choice",
   hook: {
     after_response_enabled: check_response
   }
-},
-
-// custom generator functions
-{
+}, {
+  // custom generator functions
   // stimulus_container_generator: stimulus_container_generators.basic_stimulus,
-  // answer_container_generator: answer_container_generators.button_choice,
   answer_container_generator: custom_answer_generator.categorisation,
-
-  handle_response_function: function(config, CT, magpie, answer_container_generator, startingTime) {
-
-    // create the answer container
-    $(".magpie-view").append(answer_container_generator(config, CT));
-
-    // attaches an event listener to the radio button input
-    // when an input is selected a response property with a value equal
-    // to the answer is added to the trial object
-    // as well as a readingTimes property with value
-    $("input[name=answer]").on("click", function() {
-      const RT = Date.now() - startingTime;
-      let trial_data = {
-          trial_name: config.name,
-          trial_number: CT + 1,
-          response: $("input[name=answer]:checked").val(),
-          RT: RT
-        };
-      trial_data = magpieUtils.view.save_config_trial_data(config.data[CT], trial_data);
-      magpie.trial_data.push(trial_data);
-
-      // $("magpie-response-buttons").find('input[type="click"]').attr('disabled','disabled');
-      // $("o1").find('input[type="click"]').attr('disabled','disabled');
-      $("#next").removeClass("magpie-nodisplay");
-    });
-    
-    $("#next").on("click", function() {
-      magpie.findNextView();
-    });
-
-  }    
+  handle_response_function: custom_response_handlers.categorisation    
 });
 
-// There are many more templates available:
-// forced_choice, slider_rating, dropdown_choice, testbox_input, rating_scale, image_selection, sentence_choice,
-// key_press, self_paced_reading and self_paced_reading_rating_scale
-
-const slider_ratings = magpieViews.view_generator("slider_rating",
-{
+const slider_ratings = magpieViews.view_generator("slider_rating", {
   // This will use all trials specified in `data`, you can user a smaller value (for testing), but not a larger value
   trials: trial_info.sliders.length,
   // name should be identical to the variable name
   name: 'slider_ratings',
   data: trial_info.sliders
-  // you can add custom functions at different stages through a view's life cycle
   // hook: {}
-},
-{
+},{
   stimulus_container_generator: function(config, CT) {return `<div class='magpie-view'></div>`;},
   answer_container_generator: custom_answer_generator.slider_ratings
 });
+
+
+// There are many more templates available:
+// forced_choice, slider_rating, dropdown_choice, testbox_input, rating_scale, image_selection, sentence_choice,
+// key_press, self_paced_reading and self_paced_reading_rating_scale
