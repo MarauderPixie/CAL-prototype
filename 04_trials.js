@@ -57,7 +57,6 @@ const trial_info = {
         }
     ],
     rule2: [
-        // CATEGORY A
         {
             question: "",
             picture: "images/c-l-b.png",
@@ -83,31 +82,30 @@ const trial_info = {
             option2: 'B',
             correct: 'B',
         },
-        // CATEGORY B
         {
             question: "",
             picture: "images/s-l-b.png",
             option1: "A",
             option2: "B",
-            correct: "A"
+            correct: "B"
         },{
             question: "",
             picture: "images/s-l-w.png",
             option1: "A",
             option2: "B",
-            correct: "B"
+            correct: "A"
         },{
             question: "",
             picture: "images/s-s-b.png",
             option1: "A",
             option2: "B",
-            correct: "A"
+            correct: "B"
         },{
             question: "",
             picture: "images/s-s-w.png",
             option1: "A",
             option2: "B",
-            correct: "B"
+            correct: "A"
         }        
     ],
     sliders: [
