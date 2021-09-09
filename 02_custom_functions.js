@@ -14,6 +14,23 @@ const coin = _.sample(["head", "tail"]); // You can determine global (random) pa
 *
 */
 
+/* For generating multiple "runs" of trials */
+const generate_trials = function(n, ruleset) {
+    cloner = function() {
+        rnd_trials = _.shuffle(ruleset)
+        return _.clone(rnd_trials)
+    }
+
+    n_blocks = n / ruleset.length
+
+    trials   = _.times(n_blocks, cloner)
+    console.log(trials)
+    flatd    = _.flatten(trials)
+    shuffled = _.shuffle(flatd)
+
+    return shuffled
+};
+
 
 /* For generating random participant IDs */
     // https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
