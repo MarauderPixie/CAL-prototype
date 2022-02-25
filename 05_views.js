@@ -115,10 +115,10 @@ const rule1 = magpieViews.view_generator("forced_choice", {
   // config info
   // This will use all trials specified in `data`, you can user a smaller value (for testing), but not a larger value
   // trials: trial_info.forced_choice.length,
-  trials: trials_r1.length,
+  trials: training_simple.length,
   // name should be identical to the variable name
   name: 'rule1',
-  data: trials_r1,
+  data: training_simple,
   // you can add custom functions at different stages through a view's life cycle
   hook: {
     after_response_enabled: check_category_response
@@ -134,10 +134,10 @@ const rule2 = magpieViews.view_generator("forced_choice", {
   // config info
   // This will use all trials specified in `data`, you can user a smaller value (for testing), but not a larger value
   // trials: trial_info.forced_choice.length,
-  trials: trials_r2.length,
+  trials: training_xor.length,
   // name should be identical to the variable name
   name: 'rule2',
-  data: trials_r2,
+  data: training_xor,
   // you can add custom functions at different stages through a view's life cycle
   hook: {
     after_response_enabled: check_category_response

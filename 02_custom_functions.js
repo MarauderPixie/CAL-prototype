@@ -14,7 +14,7 @@ const coin = _.sample(["head", "tail"]); // You can determine global (random) pa
 *
 */
 
-/* For generating multiple "runs" of trials */
+/* For generating multiple blocks of trials */
 const generate_trials = function(n, ruleset) {
     cloner = function() {
         rnd_trials = _.shuffle(ruleset)

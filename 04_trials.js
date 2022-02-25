@@ -2,107 +2,83 @@
 
 
 const trial_info = {
-    rule1: [
+    simple: [
         // CATEGORY A
         {
+            picture: "stimuli-training/e13_1917-766.7.jpg",
             question: "",
-            picture: "images/c-l-b.png",
             option1: 'A',
             option2: 'B',
-            correct: 'A',
+            correct: 'A'
         },{
+            picture: "stimuli-training/e07_1500-900.jpg",
             question: "",
-            picture: "images/c-s-b.png",
             option1: 'A',
             option2: 'B',
-            correct: 'A',
-        },{
-            question: "",
-            picture: "images/c-l-w.png",
-            option1: 'A',
-            option2: 'B',
-            correct: 'A',
-        },{
-            question: "",
-            picture: "images/c-s-w.png",
-            option1: 'A',
-            option2: 'B',
-            correct: 'A',
+            correct: 'A'
         },
         // CATEGORY B
         {
             question: "",
-            picture: "images/s-l-b.png",
+            picture: "stimuli-training/e41_3583-766.7.jpg",
             option1: "A",
             option2: "B",
             correct: "B"
         },{
             question: "",
-            picture: "images/s-l-w.png",
-            option1: "A",
-            option2: "B",
-            correct: "B"
-        },{
-            question: "",
-            picture: "images/s-s-b.png",
-            option1: "A",
-            option2: "B",
-            correct: "B"
-        },{
-            question: "",
-            picture: "images/s-s-w.png",
+            picture: "stimuli-training/e49_4000-900.jpg",
             option1: "A",
             option2: "B",
             correct: "B"
         }
     ],
-    rule2: [
+    xor: [
         {
             question: "",
-            picture: "images/c-l-b.png",
+            picture: "stimuli-training/e13_1917-766.7.jpg",
             option1: 'A',
             option2: 'B',
             correct: 'A',
         },{
             question: "",
-            picture: "images/c-s-b.png",
+            picture: "stimuli-training/e07_1500-900.jpg",
             option1: 'A',
             option2: 'B',
             correct: 'A',
         },{
             question: "",
-            picture: "images/c-l-w.png",
+            picture: "stimuli-training/e41_3583-766.7.jpg",
             option1: 'A',
             option2: 'B',
             correct: 'B',
         },{
             question: "",
-            picture: "images/c-s-w.png",
+            picture: "stimuli-training/e49_4000-900.jpg",
             option1: 'A',
             option2: 'B',
             correct: 'B',
         },
         {
             question: "",
-            picture: "images/s-l-b.png",
+            picture: "stimuli-training/e01_1500-100.jpg",
             option1: "A",
             option2: "B",
             correct: "B"
         },{
             question: "",
-            picture: "images/s-l-w.png",
+            picture: "stimuli-training/e13_1917-766.7.jpg",
             option1: "A",
             option2: "B",
             correct: "A"
         },{
             question: "",
-            picture: "images/s-s-b.png",
+            picture: "stimuli-training/e09_1917-233.3.jpg",
             option1: "A",
             option2: "B",
             correct: "B"
         },{
             question: "",
-            picture: "images/s-s-w.png",
+            picture: "stimuli-training/e07_1500-900.jpg",
             option1: "A",
             option2: "B",
             correct: "A"
@@ -123,5 +99,5 @@ const trial_info = {
     ]
 };
 
-trials_r1 = generate_trials(16, trial_info.rule1)
-trials_r2 = generate_trials(16, trial_info.rule2)
+training_simple = generate_trials(8, trial_info.simple)
+training_xor = generate_trials(8, trial_info.xor)

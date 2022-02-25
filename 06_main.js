@@ -38,8 +38,8 @@ $("document").ready(function() {
         progress_bar: {
             in: [
                 // list the view-names of the views for which you want a progress bar
-                trials_r1.name,
-                trials_r2.name,
+                training_simple.name,
+                training_xor.name,
             ],
              // Possible styles are "default", "separate" and "chunks"
             style: "separate",
